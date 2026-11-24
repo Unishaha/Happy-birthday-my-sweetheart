@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Bachu 💗</title>
+
+<style>
+:root {
+  --pink:#ff69b4;
+  --purple:#a855f7;
+  --dark:#10091f;
+  --glass:rgba(255,255,255,.09);
+  --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Segoe UI,Arial,sans-serif;
+  color:white;
+  background:
+    radial-gradient(circle at 15% 15%,#51236b 0,transparent 35%),
+    radial-gradient(circle at 85% 80%,#501c5d 0,transparent 35%),
+    linear-gradient(135deg,#10091f,#1c1030 55%,#10091f);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+button,input{font:inherit}
+button{
+  border:0;cursor:pointer;color:white;
+  background:linear-gradient(120deg,var(--pink),var(--purple));
+  padding:12px 19px;border-radius:30px;
+  transition:.25s;box-shadow:0 0 18px #ff69b455;
+}
+button:hover{transform:translateY(-3px);box-shadow:0 0 25px #ff69b4aa}
+button:active{transform:scale(.96)}
+a{color:inherit;text-decoration:none}
+section{padding:85px 7%;scroll-margin-top:75px}
+h1,h2,h3{text-shadow:0 0 20px #ff69b477}
+h2{text-align:center;font-size:clamp(27px,5vw,42px);margin-bottom:15px}
+.subtitle{text-align:center;color:#e8c9f5;margin:0 auto 35px;max-width:700px}
+.nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;justify-content:center;align-items:center;
+  flex-wrap:wrap;gap:8px;padding:13px;
+  background:#140b22dd;backdrop-filter:blur(18px);
+  border-bottom:1px solid #ffffff20;
+}
+.nav a{font-size:13px;padding:9px 13px;border-radius:20px;color:#f6ddff}
+.nav a:hover{background:#ffffff20;color:#ff9ed2}
+.music-control{
+  position:fixed;right:17px;bottom:17px;z-index:100;
+  background:#251236;border:1px solid #ff9ed2;
+  border-radius:18px;padding:12px;box-shadow:0 0 22px #ff69b466;
+  width:190px;
+}
+.music-control button{width:100%;padding:9px}
+.music-control label{font-size:12px;display:block;margin-top:8px}
+.music-control input{width:100%;accent-color:#ff69b4}
+.hero{
+  min-height:88vh;display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:70px 20px;position:relative;overflow:hidden;
+}
+.hero-content{max-width:850px;z-index:2}
+.eyebrow{color:#ffadd8;letter-spacing:5px;font-size:12px}
+.hero h1{
+  font-size:clamp(43px,9vw,88px);line-height:1.12;margin:20px 0;
+  background:linear-gradient(90deg,#fff,#ff9bcf,#d8a5ff,#fff);
+  background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+.hero p{font-size:18px;color:#f1dff7;line-height:1.8;margin-bottom:25px}
+.glow{animation:glow 3s infinite alternate}
+@keyframes glow{to{text-shadow:0 0 35px #ff69b4,0 0 60px #a855f7}}
+.floating-heart{
+  position:absolute;bottom:-40px;opacity:.5;
+  animation:floatUp linear infinite;pointer-events:none;
+}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+.card{
+  background:var(--glass);border:1px solid #ffffff22;
+  border-radius:24px;padding:25px;backdrop-filter:blur(15px);
+  box-shadow:0 10px 35px #0003;
+}
+.section-inner{max-width:1050px;margin:auto}
+.wish-card{line-height:1.9;color:#f5e9fa;font-size:15px}
+.wish-card p{margin:0 0 16px}
+.signature{text-align:center;color:#ffadd8;font-size:21px;margin-top:25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.game-card{text-align:center;min-height:200px}
+.game-card h3{font-size:22px;margin:12px}
+.game-card p{color:#e8d8f2;line-height:1.6;margin-bottom:15px}
+.game-menu{
+  display:flex;justify-content:center;gap:8px;flex-wrap:wrap;
+  margin:20px 0;
+}
+.game-menu button{background:#ffffff18;border:1px solid #ffffff28;box-shadow:none}
+.game-menu button.active{background:linear-gradient(120deg,var(--pink),var(--purple))}
+.game-panel{display:none}
+.game-panel.active{display:block}
+.game-area{
+  position:relative;min-height:300px;overflow:hidden;
+  background:#ffffff0c;border:1px solid #ffffff20;border-radius:20px;
+  margin-top:15px;padding:15px;
+}
+.game-status{text-align:center;margin:12px;color:#ffcae5}
+.balloon{
+  position:absolute;font-size:42px;cursor:pointer;
+  animation:balloonRise 5s linear forwards;user-select:none;
+}
+@keyframes balloonRise{from{transform:translateY(320px)}to{transform:translateY(-380px)}}
+.memory-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(50px,1fr));
+  gap:10px;max-width:480px;margin:15px auto;
+}
+.memory-tile{
+  min-height:70px;font-size:28px;border-radius:14px;
+  background:#ffffff17;border:1px solid #ffffff25;
+  display:grid;place-items:center;cursor:pointer;
+}
+.memory-tile.matched{background:#ff69b444}
+.heart-target{
+  position:absolute;font-size:35px;cursor:pointer;
+  animation:heartFall 4s linear forwards;
+}
+@keyframes heartFall{from{top:-45px}to{top:330px}}
+.quiz-options{display:grid;gap:10px;max-width:450px;margin:20px auto}
+.quiz-options button{background:#ffffff18;border:1px solid #ffffff30}
+.cake-stage{
+  min-height:300px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;position:relative;
+}
+.cake{position:relative;width:230px;height:165px;margin-top:65px;transition:.6s}
+.cake-base{
+  position:absolute;bottom:0;width:230px;height:95px;
+  background:linear-gradient(90deg,#e98bb8,#ffb5d6,#d969a0);
+  border-radius:15px 15px 25px 25px;box-shadow:0 12px 25px #0005;
+}
+.cake-top{
+  position:absolute;bottom:75px;width:230px;height:48px;
+  background:#ffe1ee;border-radius:50%;
+  border:5px solid #ffb5d6;
+}
+.icing{
+  position:absolute;bottom:50px;left:0;width:230px;height:28px;
+  background:#fff0f6;border-radius:0 0 20px 20px;
+}
+.candle{
+  position:absolute;bottom:120px;left:107px;width:14px;height:47px;
+  border-radius:5px;background:repeating-linear-gradient(45deg,#fff 0 7px,#ff70b7 7px 14px);
+}
+.flame{
+  position:absolute;bottom:165px;left:108px;width:13px;height:20px;
+  background:#ffdb69;border-radius:50% 50% 45% 45%;
+  box-shadow:0 0 22px #ffb52e;animation:flicker .5s infinite alternate;
+}
+@keyframes flicker{to{transform:scale(.75) rotate(8deg)}}
+.cake.cut .cake-base{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);transform:rotate(-3deg)}
+.cake.cut{transform:translateX(12px) rotate(2deg)}
+.cake.blown .flame{display:none}
+.cake-message{margin-top:25px;color:#ffb6dc;text-align:center}
+.album-tools{text-align:center;margin:20px 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:14px}
+.album-item{
+  background:#ffffff12;padding:8px;border-radius:17px;
+  border:1px solid #ffffff20;position:relative;
+}
+.album-item img{width:100%;height:150px;object-fit:cover;border-radius:12px;cursor:pointer}
+.album-item button{width:100%;padding:7px;margin-top:7px;font-size:12px}
+.empty-album{text-align:center;color:#d8c3e5;padding:35px}
+.surprise-card{text-align:center}
+.surprise-card .gift{font-size:55px;margin:12px}
+.surprise-message{display:none;margin-top:15px;line-height:1.7;color:#ffe0f0}
+.surprise-message.show{display:block;animation:fadeIn .5s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+footer{text-align:center;padding:40px 15px;color:#d6b8e3;border-top:1px solid #ffffff20}
+.modal{
+  display:none;position:fixed;inset:0;background:#080411ee;z-index:200;
+  align-items:center;justify-content:center;padding:20px;
+}
+.modal.show{display:flex}
+.modal img{max-width:90vw;max-height:80vh;border-radius:18px}
+.modal button{position:absolute;top:20px;right:20px}
+@media(max-width:600px){
+  section{padding:65px 5%}
+  .nav{gap:3px}
+  .nav a{font-size:11px;padding:8px}
+  .music-control{width:155px;right:8px;bottom:8px}
+  .memory-tile{min-height:60px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <a href="#home">🏠 Home</a>
+  <a href="#wishes">💌 Wishes</a>
+  <a href="#cake">🎂 Cake</a>
+  <a href="#games">🎮 Games</a>
+  <a href="#album">📸 Album</a>
+  <a href="#surprises">🎁 Surprises</a>
+</nav>
+
+<div class="music-control">
+  <button id="musicButton" onclick="toggleMusic()">🎵 Play Music</button>
+  <label>Music volume</label>
+  <input id="volume" type="range" min="0" max="100" value="40">
+  <small id="musicStatus">Original bansuri-inspired melody</small>
+</div>
+
+<header class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">A SPECIAL DAY • A SPECIAL PERSON</div>
+    <h1 class="glow">Happy Birthday<br>My Bachu 💗</h1>
+    <p>
+      To my Pudku, my Sweetheart, my little princess,
+      my favourite person and my beautiful world.
+      Today is all about YOU! 🌸
+    </p>
+    <a href="#wishes"><button>Open Your Birthday Surprise 💌</button></a>
+  </div>
+</header>
+
+<section id="wishes">
+  <div class="section-inner">
+    <h2>💌 A Letter From My Heart</h2>
+    <p class="subtitle">A thousand little feelings, wrapped into one birthday letter. 💗</p>
+    <div class="card wish-card">
+      <p>Happy Birthday, my Pudku Bachu! 💗🎂🌷 Today is not just another day on the calendar. It is the day someone incredibly special came into this world, and I feel so lucky that our paths crossed. I wish I could put every beautiful feeling into words, but even a thousand pages would never be enough to explain how much happiness you bring into my life. You are my sweetheart, my favourite notification, my cutest distraction and one of the most precious parts of my world. 🥹💕</p>
+
+      <p>First of all, I hope your birthday is filled with happiness, laughter, beautiful memories and all the little things that make your heart smile. May your morning begin with excitement, your afternoon be full of lovely surprises, and your night end with the sweetest dreams. I hope today reminds you how important, appreciated and loved you are. You deserve kindness, peace, success and countless reasons to smile. 🌸✨</p>
+
+      <p>My Bachu, never forget how special you are. Your smile can turn an ordinary moment into something unforgettable. Your little expressions, your funny conversations, your random thoughts and even your silly moments make life more colourful. Sometimes the smallest things about a person become the biggest reasons to care about them. And with you, there are so many little things that make me happy. You have your own magic, and I hope you never lose that beautiful spark. 🦋💗</p>
+
+      <p>I wish I could collect every star in the sky and arrange them into a birthday crown for you. I would fill the moon with your favourite memories, ask the flowers to send you their sweetest fragrance, and tell the clouds to write your name across the sky. But since I cannot do all those magical things, I made this little website with love, just for you. Every button, every game, every surprise and every little heart is here to make your day a little more special. 🎀🌙</p>
+
+      <p>I hope you always believe in yourself, even on days when things feel difficult. You have so much potential, so many dreams to chase and so many beautiful chapters waiting ahead. Never feel that you have to be perfect to be amazing. You are allowed to learn, grow, make mistakes, take breaks and start again. I hope this new year of your life brings you confidence, courage and the strength to follow the things that make you happy. 🌈</p>
+
+      <p>May you achieve the goals you have been quietly wishing for. May the opportunities you deserve find their way to you. May you meet people who respect your feelings, appreciate your kindness and support your dreams. May your hard work bring results, your worries become lighter and your happiest moments become even more beautiful. I wish you a life full of meaningful friendships, wonderful adventures and memories that you will smile about for years. 💫</p>
+
+      <p>Thank you for all the smiles, conversations, laughs and memories. Thank you for being yourself. Thank you for the little moments that may seem ordinary but mean so much. Even a simple message from you can make a normal day feel brighter. I hope we continue making beautiful memories, sharing jokes, celebrating little victories and cheering each other on. Life is made of small moments, and I hope we get plenty of lovely ones together. 🧸💕</p>
+
+      <p>My little Pudku, I hope you never hide your happiness just to make other people comfortable. Keep laughing loudly, enjoying your favourite things, learning new things and being wonderfully yourself. Keep your kind heart, but remember to protect your peace too. You deserve to be treated with respect, patience and care. Never let a difficult day convince you that tomorrow cannot be better. There is always something beautiful waiting to be discovered. 🌷</p>
+
+      <p>If I could give you one birthday gift that would last forever, it would be the ability to see yourself through the eyes of the people who appreciate you. You would understand how much your presence matters, how lovely your little habits are and how much happiness you can bring without even trying. I hope you feel proud of the person you are becoming. You are growing, learning and writing your own story, and I hope it becomes a wonderful one. 💖</p>
+
+      <p>Today, make a wish before blowing out your candles. Make a big one, a silly one, a secret one or a dream that feels almost impossible. Whatever it is, I hope life gives you beautiful opportunities to work towards it. I hope you always have reasons to celebrate yourself, not just on birthdays but on every ordinary day too. You deserve those little celebrations. 🎂🕯️</p>
+
+      <p>And now, a tiny reminder from this website: drink enough water, take care of yourself, get enough rest, enjoy your favourite food and don't forget to smile. Your happiness matters. Your dreams matter. Your feelings matter. I hope you always have a safe place to be yourself and people who listen when you need them. May your days be softer, your nights peaceful and your future full of possibilities. ☁️💗</p>
+
+      <p>Happy Birthday once again, my Sweetheart! I hope this little digital world makes you smile. I made it to celebrate you, to remind you that today is special and to give you a few fun moments to enjoy. May this new chapter be filled with laughter, achievements, peaceful days, exciting adventures and memories worth keeping forever. Keep shining in your own way, my Bachu. The world is lucky to have your light in it. 🌟</p>
+
+      <p>Sending you a thousand virtual hugs, a million little hearts and endless birthday wishes. May every candle bring a beautiful hope, every flower bring a little happiness and every new day bring another reason to smile. Have the sweetest birthday ever! 🎀🎂💗</p>
+
+      <div class="signature">With lots of love, always 💗<br>For my Pudku Bachu 🌷</div>
+    </div>
+  </div>
+</section>
+
+<section id="cake">
+  <div class="section-inner">
+    <h2>🎂 Your Magical Birthday Cake</h2>
+    <p class="subtitle">Make a wish, blow out the candles and slice your cake! 🕯️</p>
+    <div class="card cake-stage">
+      <div class="cake" id="cakeObject">
+        <div class="cake-base"></div>
+        <div class="icing"></div>
+        <div class="cake-top"></div>
+        <div class="candle"></div>
+        <div class="flame" id="flame"></div>
+      </div>
+      <div class="cake-message" id="cakeMessage">Your birthday cake is waiting for you! 💗</div>
+      <div class="album-tools">
+        <button onclick="blowCandles()">🌬️ Blow Candles</button>
+        <button onclick="sliceCake()">🔪 Slice Cake</button>
+        <button onclick="resetCake()">🔄 Reset Cake</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="games">
+  <div class="section-inner">
+    <h2>🎮 Bachu's Fun Game Zone</h2>
+    <p class="subtitle">Four little games made specially for your birthday! Play them all. 💕</p>
+
+    <div class="game-menu">
+      <button class="active" onclick="showGame('balloon',this)">🎈 Balloon Pop</button>
+      <button onclick="showGame('memory',this)">🧠 Memory Match</button>
+      <button onclick="showGame('hearts',this)">💗 Catch Hearts</button>
+      <button onclick="showGame('quiz',this)">❓ Birthday Quiz</button>
+    </div>
+
+    <div class="card game-panel active" id="game-balloon">
+      <h3>🎈 Balloon Pop Challenge</h3>
+      <p class="subtitle">Pop as many balloons as you can in 20 seconds!</p>
+      <div class="game-status" id="balloonStatus">Score: 0 | Time: 20</div>
+      <div class="game-area" id="balloonArea">
+        <p class="empty-album">Press Start Game to begin!</p>
+      </div>
+      <div class="album-tools"><button onclick="startBalloons()">Start Game 🎈</button></div>
+    </div>
+
+    <div class="card game-panel" id="game-memory">
+      <h3>🧠 Memory Match</h3>
+      <p class="subtitle">Find all six matching emoji pairs.</p>
+      <div class="game-status" id="memoryStatus">Find the matching pairs!</div>
+      <div class="memory-grid" id="memoryGrid"></div>
+      <div class="album-tools"><button onclick="startMemory()">Restart Game 🔄</button></div>
+    </div>
+
+    <div class="card game-panel" id="game-hearts">
+      <h3>💗 Catch the Falling Hearts</h3>
+      <p class="subtitle">Tap the falling hearts before they disappear!</p>
+      <div class="game-status" id="heartStatus">Score: 0 | Time: 20</div>
+      <div class="game-area" id="heartArea">
+        <p class="empty-album">Press Start Game to catch some hearts!</p>
+      </div>
+      <div class="album-tools"><button onclick="startHearts()">Start Catching 💗</button></div>
+    </div>
+
+    <div class="card game-panel" id="game-quiz">
+      <h3>❓ How Well Do You Know Your Birthday?</h3>
+      <p class="subtitle">Answer these cute birthday questions!</p>
+      <div class="game-status" id="quizStatus">Question 1 of 5</div>
+      <div id="quizQuestion" style="text-align:center;font-size:20px;margin:20px"></div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="game-status" id="quizResult"></div>
+      <div class="album-tools"><button onclick="startQuiz()">Restart Quiz 🔄</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="album">
+  <div class="section-inner">
+    <h2>📸 Our Little Memory Album</h2>
+    <p class="subtitle">Choose your favourite photos and create your own birthday album. 💗</p>
+    <div class="card">
+      <div class="album-tools">
+        <button onclick="document.getElementById('photoInput').click()">＋ Add Your Photos</button>
+        <button onclick="clearAlbum()">🗑️ Clear Album</button>
+        <input type="file" id="photoInput" accept="image/*" multiple hidden>
+      </div>
+      <p class="game-status" id="albumCount">0 photos added</p>
+      <div id="albumGrid" class="album-grid"></div>
+      <div id="albumEmpty" class="empty-album">
+        🌷 Your album is waiting for beautiful memories.<br>
+        Tap "Add Your Photos" to choose pictures from your device.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="surprises">
+  <div class="section-inner">
+    <h2>🎁 Three Little Surprises</h2>
+    <p class="subtitle">There are three gifts waiting for you. Open them one by one! 🎀</p>
+    <div class="grid">
+      <div class="card surprise-card">
+        <div class="gift">🎀</div>
+        <h3>Gift Number One</h3>
+        <p>A little birthday message.</p>
+        <button onclick="reveal('surprise1')">Open Gift 💗</button>
+        <div class="surprise-message" id="surprise1">
+          Surprise! You deserve a day filled with smiles, laughter and happiness.
+          Never forget how special you are. Happy Birthday, Bachu! 🌸
+        </div>
+      </div>
+      <div class="card surprise-card">
+        <div class="gift">💌</div>
+        <h3>Gift Number Two</h3>
+        <p>A secret wish for your future.</p>
+        <button onclick="reveal('surprise2')">Open Gift 💗</button>
+        <div class="surprise-message" id="surprise2">
+          My wish for you is that every dream you carry finds a path,
+          every challenge teaches you something good and every new day
+          gives you a reason to believe in yourself. ✨
+        </div>
+      </div>
+      <div class="card surprise-card">
+        <div class="gift">🌙</div>
+        <h3>Gift Number Three</h3>
+        <p>Your final birthday surprise.</p>
+        <button onclick="reveal('surprise3')">Open Gift 💗</button>
+        <div class="surprise-message" id="surprise3">
+          Your final surprise is a promise to keep celebrating the little
+          things: your achievements, your laughter, your dreams and all
+          the beautiful memories still waiting to happen. 💗
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made with lots of love for my Pudku Bachu 💗<br>
+  Happy Birthday, Sweetheart! 🎂🌷
+</footer>
+
+<div class="modal" id="photoModal" onclick="closePhoto(event)">
+  <button onclick="closePhoto()">✕ Close</button>
+  <img id="modalImage" alt="Selected album photo">
+</div>
+
+<script>
+/* FLOATING HEARTS */
+for(let i=0;i<22;i++){
+  const heart=document.createElement('div');
+  heart.className='floating-heart';
+  heart.textContent=['💗','💕','🌸','✨'][Math.floor(Math.random()*4)];
+  heart.style.left=Math.random()*100+'%';
+  heart.style.animationDuration=(8+Math.random()*12)+'s';
+  heart.style.animationDelay=(Math.random()*10)+'s';
+  heart.style.fontSize=(14+Math.random()*22)+'px';
+  document.body.appendChild(heart);
+}
+
+/* ORIGINAL FLUTE-INSPIRED BIRTHDAY MELODY */
+let audioContext=null,musicPlaying=false,musicTimer=null;
+let masterGain=null;
+let noteIndex=0;
+const melody=[
+  659,784,880,784,659,587,523,587,
+  659,784,880,988,880,784,659,587,
+  523,587,659,784,659,587,523,494,
+  523,659,784,880,784,659,587,523
+];
+
+function playNote(){
+  if(!audioContext||!masterGain)return;
+  const now=audioContext.currentTime;
+  const frequency=melody[noteIndex%melody.length];
+  noteIndex++;
+  const osc=audioContext.createOscillator();
+  const gain=audioContext.createGain();
+  osc.type='sine';
+  osc.frequency.setValueAtTime(frequency,now);
+  gain.gain.setValueAtTime(0.0001,now);
+  gain.gain.exponentialRampToValueAtTime(0.18,now+0.06);
+  gain.gain.exponentialRampToValueAtTime(0.0001,now+0.65);
+  osc.connect(gain);
+  gain.connect(masterGain);
+  osc.start(now);
+  osc.stop(now+0.7);
+}
+async function toggleMusic(){
+  if(!audioContext){
+    const AudioCtx=window.AudioContext||window.webkitAudioContext;
+    if(!AudioCtx){alert('Your browser does not support background music.');return;}
+    audioContext=new AudioCtx();
+    masterGain=audioContext.createGain();
+    masterGain.gain.value=.4;
+    masterGain.connect(audioContext.destination);
+  }
+  if(audioContext.state==='suspended')await audioContext.resume();
+  musicPlaying=!musicPlaying;
+  const button=document.getElementById('musicButton');
+  if(musicPlaying){
+    button.textContent='⏸ Pause Music';
+    playNote();
+    musicTimer=setInterval(playNote,520);
+  }else{
+    button.textContent='🎵 Play Music';
+    clearInterval(musicTimer);
+  }
+}
+document.getElementById('volume').addEventListener('input',e=>{
+  if(masterGain)masterGain.gain.value=Number(e.target.value)/100;
+});
+
+/* CAKE */
+function blowCandles(){
+  document.getElementById('cakeObject').classList.add('blown');
+  document.getElementById('cakeMessage').textContent='Your wish has been sent to the stars! 🌟💗';
+}
+function sliceCake(){
+  document.getElementById('cakeObject').classList.add('cut');
+  document.getElementById('cakeMessage').textContent='One sweet slice for the birthday star! 🍰';
+}
+function resetCake(){
+  document.getElementById('cakeObject').classList.remove('blown','cut');
+  document.getElementById('cakeMessage').textContent='Your birthday cake is ready again! 🎂';
+}
+
+/* GAME MENU */
+function showGame(name,button){
+  document.querySelectorAll('.game-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('game-'+name).classList.add('active');
+  document.querySelectorAll('.game-menu button').forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+}
+
+/* BALLOON POP */
+let balloonTimer=null,balloonSpawn=null,balloonScore=0,balloonTime=20;
+function startBalloons(){
+  clearInterval(balloonTimer);clearInterval(balloonSpawn);
+  const area=document.getElementById('balloonArea');
+  area.innerHTML='';
+  balloonScore=0;balloonTime=20;
+  updateBalloonStatus();
+  balloonSpawn=setInterval(()=>{
+    const b=document.createElement('div');
+    b.className='balloon';
+    b.textContent=['🎈','💗','🎈','💜','🩷'][Math.floor(Math.random()*5)];
+    b.style.left=(Math.random()*85)+'%';
+    b.style.animationDuration=(2.5+Math.random()*2)+'s';
+    b.onclick=()=>{
+      balloonScore++;
+      updateBalloonStatus();
+      b.remove();
+    };
+    area.appendChild(b);
+    setTimeout(()=>b.remove(),5000);
+  },550);
+  balloonTimer=setInterval(()=>{
+    balloonTime--;updateBalloonStatus();
+    if(balloonTime<=0){
+      clearInterval(balloonTimer);clearInterval(balloonSpawn);
+      area.innerHTML='<p class="empty-album">🎉 Game over! Your score: '+balloonScore+' balloons popped!</p>';
+    }
+  },1000);
+}
+function updateBalloonStatus(){
+  document.getElementById('balloonStatus').textContent='Score: '+balloonScore+' | Time: '+balloonTime;
+}
+
+/* MEMORY MATCH */
+const memoryEmojis=['🎂','💗','🌸','🎀','🧸','🌙'];
+let memoryFirst=null,memoryLock=false,memoryMatches=0,memoryMoves=0;
+function startMemory(){
+  const values=[...memoryEmojis,...memoryEmojis].sort(()=>Math.random()-.5);
+  const grid=document.getElementById('memoryGrid');
+  grid.innerHTML='';
+  memoryFirst=null;memoryLock=false;memoryMatches=0;memoryMoves=0;
+  document.getElementById('memoryStatus').textContent='Find all six matching pairs!';
+  values.forEach((emoji,index)=>{
+    const tile=document.createElement('button');
+    tile.className='memory-tile';
+    tile.textContent='❔';
+    tile.dataset.emoji=emoji;
+    tile.dataset.index=index;
+    tile.onclick=()=>flipMemory(tile);
+    grid.appendChild(tile);
+  });
+}
+function flipMemory(tile){
+  if(memoryLock||tile.classList.contains('matched')||tile===memoryFirst)return;
+  tile.textContent=tile.dataset.emoji;
+  if(!memoryFirst){memoryFirst=tile;return;}
+  memoryMoves++;
+  if(memoryFirst.dataset.emoji===tile.dataset.emoji){
+    memoryFirst.classList.add('matched');tile.classList.add('matched');
+    memoryFirst=null;memoryMatches++;
+    if(memoryMatches===6){
+      document.getElementById('memoryStatus').textContent='🎉 You found all pairs in '+memoryMoves+' moves!';
+    }else{
+      document.getElementById('memoryStatus').textContent='Great match! '+memoryMatches+'/6 pairs found.';
+    }
+  }else{
+    memoryLock=true;
+    const first=memoryFirst;
+    setTimeout(()=>{
+      first.textContent='❔';tile.textContent='❔';
+      memoryFirst=null;memoryLock=false;
+    },750);
+  }
+}
+
+/* CATCH HEARTS */
+let heartScore=0,heartTime=20,heartSpawn=null,heartTimer=null;
+function startHearts(){
+  clearInterval(heartSpawn);clearInterval(heartTimer);
+  const area=document.getElementById('heartArea');
+  area.innerHTML='';
+  heartScore=0;heartTime=20;updateHeartStatus();
+  heartSpawn=setInterval(()=>{
+    const heart=document.createElement('div');
+    heart.className='heart-target';
+    heart.textContent=['💗','💖','💕','💜'][Math.floor(Math.random()*4)];
+    heart.style.left=(Math.random()*85)+'%';
+    heart.onclick=()=>{
+      heartScore++;updateHeartStatus();heart.remove();
+    };
+    area.appendChild(heart);
+    setTimeout(()=>heart.remove(),4000);
+  },650);
+  heartTimer=setInterval(()=>{
+    heartTime--;updateHeartStatus();
+    if(heartTime<=0){
+      clearInterval(heartSpawn);clearInterval(heartTimer);
+      area.innerHTML='<p class="empty-album">💗 You caught '+heartScore+' hearts! Amazing!</p>';
+    }
+  },1000);
+}
+function updateHeartStatus(){
+  document.getElementById('heartStatus').textContent='Score: '+heartScore+' | Time: '+heartTime;
+}
+
+/* BIRTHDAY QUIZ */
+const questions=[
+  {q:'What is the most important thing on a birthday?',a:['Happiness','Homework','Worrying'],correct:0},
+  {q:'What should you do before blowing out candles?',a:['Make a wish','Count the clouds','Go to sleep'],correct:0},
+  {q:'Which one is a birthday symbol?',a:['🎂','🚦','📚'],correct:0},
+  {q:'What should every new year bring?',a:['New hopes','More worries','No fun'],correct:0},
+  {q:'Who is the birthday star today?',a:['A random potato','My Bachu!','A sleepy cat'],correct:1}
+];
+let quizIndex=0,quizScore=0;
+function startQuiz(){
+  quizIndex=0;quizScore=0;
+  document.getElementById('quizResult').textContent='';
+  showQuizQuestion();
+}
+function showQuizQuestion(){
+  const q=questions[quizIndex];
+  document.getElementById('quizStatus').textContent='Question '+(quizIndex+1)+' of '+questions.length;
+  document.getElementById('quizQuestion').textContent=q.q;
+  const options=document.getElementById('quizOptions');
+  options.innerHTML='';
+  q.a.forEach((answer,index)=>{
+    const button=document.createElement('button');
+    button.textContent=answer;
+    button.onclick=()=>answerQuiz(index);
+    options.appendChild(button);
+  });
+}
+function answerQuiz(index){
+  if(index===questions[quizIndex].correct)quizScore++;
+  quizIndex++;
+  if(quizIndex<questions.length){showQuizQuestion();}
+  else{
+    document.getElementById('quizStatus').textContent='Quiz completed!';
+    document.getElementById('quizQuestion').textContent='Your score: '+quizScore+'/5';
+    document.getElementById('quizOptions').innerHTML='';
+    document.getElementById('quizResult').textContent=
+      quizScore===5?'Perfect score! Birthday genius! 🏆💗':'Great try! You are still the birthday star! 🌟';
+  }
+}
+
+/* PHOTO ALBUM */
+let albumPhotos=[];
+const photoInput=document.getElementById('photoInput');
+const albumGrid=document.getElementById('albumGrid');
+const albumEmpty=document.getElementById('albumEmpty');
+const albumKey='bachuBirthdayAlbum_v2';
+
+function loadAlbum(){
+  try{
+    albumPhotos=JSON.parse(localStorage.getItem(albumKey)||'[]');
+    if(!Array.isArray(albumPhotos))albumPhotos=[];
+  }catch(e){albumPhotos=[];}
+  renderAlbum();
+}
+function saveAlbum(){
+  try{
+    localStorage.setItem(albumKey,JSON.stringify(albumPhotos));
+    return true;
+  }catch(e){
+    alert('Your browser storage is full. Please remove some photos and try again.');
+    return false;
+  }
+}
+function compressPhoto(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>{
+      const image=new Image();
+      image.onload=()=>{
+        const max=1000;
+        const scale=Math.min(1,max/Math.max(image.width,image.height));
+        const canvas=document.createElement('canvas');
+        canvas.width=Math.round(image.width*scale);
+        canvas.height=Math.round(image.height*scale);
+        const ctx=canvas.getContext('2d');
+        ctx.drawImage(image,0,0,canvas.width,canvas.height);
+        resolve(canvas.toDataURL('image/jpeg',.72));
+      };
+      image.onerror=()=>reject(new Error('Image could not be opened'));
+      image.src=reader.result;
+    };
+    reader.onerror=()=>reject(new Error('File could not be read'));
+    reader.readAsDataURL(file);
+  });
+}
+photoInput.addEventListener('change',async event=>{
+  const files=Array.from(event.target.files||[]);
+  for(const file of files){
+    if(!file.type.startsWith('image/'))continue;
+    try{
+      const photo=await compressPhoto(file);
+      albumPhotos.push(photo);
+      if(!saveAlbum()){
+        albumPhotos.pop();
+        break;
+      }
+      renderAlbum();
+    }catch(error){
+      alert('One of the selected photos could not be added.');
+    }
+  }
+  photoInput.value='';
+});
+function renderAlbum(){
+  albumGrid.innerHTML='';
+  albumPhotos.forEach((photo,index)=>{
+    const item=document.createElement('div');
+    item.className='album-item';
+    const img=document.createElement('img');
+    img.src=photo;img.alt='Birthday memory '+(index+1);
+    img.onclick=()=>openPhoto(photo);
+    const remove=document.createElement('button');
+    remove.textContent='Remove Photo';
+    remove.onclick=()=>deletePhoto(index);
+    item.append(img,remove);
+    albumGrid.appendChild(item);
+  });
+  albumEmpty.style.display=albumPhotos.length?'none':'block';
+  document.getElementById('albumCount').textContent=albumPhotos.length+' photo'+(albumPhotos.length===1?'':'s')+' added';
+}
+function deletePhoto(index){
+  albumPhotos.splice(index,1);saveAlbum();renderAlbum();
+}
+function clearAlbum(){
+  if(!albumPhotos.length)return;
+  if(confirm('Are you sure you want to remove all album photos?')){
+    albumPhotos=[];saveAlbum();renderAlbum();
+  }
+}
+function openPhoto(src){
+  document.getElementById('modalImage').src=src;
+  document.getElementById('photoModal').classList.add('show');
+}
+function closePhoto(event){
+  if(!event||event.target.id==='photoModal'||event.target.tagName==='BUTTON'){
+    document.getElementById('photoModal').classList.remove('show');
+  }
+}
+
+/* SURPRISES */
+function reveal(id){
+  document.getElementById(id).classList.toggle('show');
+}
+
+/* STARTUP */
+startMemory();
+startQuiz();
+loadAlbum();
+</script>
+</body>
+</html>
